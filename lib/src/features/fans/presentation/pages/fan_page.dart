@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:luanda_sport/src/configs/themes/app_colors.dart';
+import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_competitions_tab.dart';
+import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_favorites_tab.dart';
+import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_forum_tab.dart';
+import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_home_tab.dart';
+import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_rankings_tab.dart';
+import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_settings_tab.dart';
+import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_teams_players_tab.dart';
 
 class FanPage extends StatelessWidget {
   const FanPage({super.key});
@@ -9,12 +17,35 @@ class FanPage extends StatelessWidget {
       length: 7,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Adepto'),
+          backgroundColor: AppColors.primaryColor,
+          title: ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: Container(
+              width: 40,
+              height: 40,
+              color: Colors.red,
+            ),
+            title: const Text(
+              'Luanda Sport',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            subtitle: const Text(
+              'Adepto',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 14,
+              ),
+            ),
+          ),
           bottom: const TabBar(
             isScrollable: true,
             tabAlignment: TabAlignment.start,
             tabs: [
-              Tab(icon: Icon(Icons.newspaper), text: 'Notícias'),
+              Tab(icon: Icon(Icons.newspaper), text: 'Feed'),
               Tab(icon: Icon(Icons.emoji_events), text: 'Competições'),
               Tab(icon: Icon(Icons.groups), text: 'Equipas'),
               Tab(icon: Icon(Icons.bar_chart), text: 'Rankings'),
@@ -26,7 +57,7 @@ class FanPage extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            FanHighlightsTab(),
+            FanHomeTab(),
             FanCompetitionsTab(),
             FanTeamsPlayersTab(),
             FanRankingsTab(),
@@ -37,68 +68,5 @@ class FanPage extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class FanHighlightsTab extends StatelessWidget {
-  const FanHighlightsTab({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text('Notícias & Destaques'));
-  }
-}
-
-class FanCompetitionsTab extends StatelessWidget {
-  const FanCompetitionsTab({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text('Competições'));
-  }
-}
-
-class FanTeamsPlayersTab extends StatelessWidget {
-  const FanTeamsPlayersTab({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text('Equipas e Jogadores'));
-  }
-}
-
-class FanRankingsTab extends StatelessWidget {
-  const FanRankingsTab({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text('Rankings & Estatísticas'));
-  }
-}
-
-class FanForumTab extends StatelessWidget {
-  const FanForumTab({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text('Fórum / Comentários'));
-  }
-}
-
-class FanFavoritesTab extends StatelessWidget {
-  const FanFavoritesTab({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text('Favoritos'));
-  }
-}
-
-class FanSettingsTab extends StatelessWidget {
-  const FanSettingsTab({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text('Definições'));
   }
 }
