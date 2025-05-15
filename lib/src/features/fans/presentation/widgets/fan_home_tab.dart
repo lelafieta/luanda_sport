@@ -31,8 +31,10 @@ class FanHomeTab extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('📰 Destaques',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          Text(
+            '📰 Destaques',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
           const SizedBox(height: 8),
           ...highlights.map((h) => Card(
                 child: ListTile(
