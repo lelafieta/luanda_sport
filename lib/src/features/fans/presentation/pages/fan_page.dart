@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:luanda_sport/src/configs/themes/app_colors.dart';
+import 'package:luanda_sport/src/core/resources/app_icons.dart';
 import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_competitions_tab.dart';
 import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_favorites_tab.dart';
 import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_forum_tab.dart';
@@ -20,13 +23,15 @@ class FanPage extends StatelessWidget {
           backgroundColor: AppColors.primaryColor,
           title: ListTile(
             contentPadding: EdgeInsets.zero,
-            leading: Container(
-              width: 40,
-              height: 40,
-              color: Colors.red,
+            leading: ClipOval(
+              child: Container(
+                width: 45,
+                height: 45,
+                color: Colors.grey,
+              ),
             ),
             title: const Text(
-              'Luanda Sport',
+              'Lela Fieta',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 20,
@@ -38,6 +43,13 @@ class FanPage extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 14,
+              ),
+            ),
+            trailing: IconButton(
+              onPressed: () {},
+              icon: SvgPicture.asset(
+                AppIcons.bell,
+                color: Colors.white,
               ),
             ),
           ),
