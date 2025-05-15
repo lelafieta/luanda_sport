@@ -3,6 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter appRouter = GoRouter(
+  // redirect: (context, state) {
+  //   final auth = ref.read(authProvider);
+
+  //   if (!auth.isLoggedIn) return '/login';
+
+  //   switch (auth.user.profile) {
+  //     case UserProfile.fan:
+  //       return '/home-fan';
+  //     case UserProfile.player:
+  //       return '/home-player';
+  //     case UserProfile.coach:
+  //       return '/home-coach';
+  //     case UserProfile.organizer:
+  //       return '/home-organizer';
+  //     case UserProfile.scout:
+  //       return '/home-scout';
+  //     case UserProfile.referee:
+  //       return '/home-referee';
+  //   }
+  // },
   routes: [
     GoRoute(
       path: '/',
@@ -45,5 +65,13 @@ final GoRouter appRouter = GoRouter(
       name: 'adepto',
       builder: (context, state) => const Text("HOME"),
     ),
+
+    //  GoRoute(path: '/login', builder: (_, __) => LoginPage()),
+    // GoRoute(path: '/home-fan', builder: (_, __) => HomeFanPage()),
+    // GoRoute(path: '/home-player', builder: (_, __) => HomePlayerPage()),
+    // GoRoute(path: '/home-coach', builder: (_, __) => HomeCoachPage()),
+    // GoRoute(path: '/home-organizer', builder: (_, __) => HomeOrganizerPage()),
+    // GoRoute(path: '/home-scout', builder: (_, __) => HomeScoutPage()),
+    // GoRoute(path: '/home-referee', builder: (_, __) => HomeRefereePage()),
   ],
 );
