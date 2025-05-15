@@ -8,6 +8,7 @@ class LuandaSportApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context);
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
