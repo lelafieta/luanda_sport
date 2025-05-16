@@ -106,4 +106,12 @@ class AppIcons {
   static const String populationGlobe = "assets/icons/population-globe.svg";
   static const String football = "assets/icons/football.svg";
   static const String memo = "assets/icons/memo.svg";
+
+  static const String membossMano = "assets/icons/boss-man-svgrepo-com.svg";
+  static const String footballPlayerSpain =
+      "assets/icons/football-player-spain-svgrepo-com.svg";
+  static const String managerBoss = "assets/icons/manager-boss-svgrepo-com.svg";
+  static const String managerBusinessman =
+      "assets/icons/manager-businessman-svgrepo-com.svg";
+  static const String referee = "assets/icons/referee-svgrepo-com.svg";
 }

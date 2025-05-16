@@ -1,8 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../features/fans/presentation/pages/fan_page.dart';
+import 'package:luanda_sport/src/features/luanda_sport/presentation/pages/luanda_sport_page.dart';
 
 final GoRouter appRouter = GoRouter(
   // redirect: (context, state) {
@@ -32,7 +31,7 @@ final GoRouter appRouter = GoRouter(
       pageBuilder: (context, state) {
         return CustomTransitionPage(
           key: state.pageKey,
-          child: FanPage(),
+          child: LuandaSportPage(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return SharedAxisTransition(
               animation: animation,

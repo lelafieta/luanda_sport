@@ -1,83 +1,147 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:luanda_sport/src/configs/themes/app_colors.dart';
-import 'package:luanda_sport/src/core/resources/app_icons.dart';
 import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_competitions_tab.dart';
-import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_favorites_tab.dart';
+import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_feed_tab.dart';
 import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_forum_tab.dart';
-import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_home_tab.dart';
-import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_rankings_tab.dart';
-import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_settings_tab.dart';
-import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_teams_players_tab.dart';
 
-class FanPage extends StatelessWidget {
+import '../../../../configs/themes/app_colors.dart';
+import '../../../../core/resources/app_icons.dart';
+
+class FanPage extends StatefulWidget {
   const FanPage({super.key});
 
   @override
+  State<FanPage> createState() => _FanPageState();
+}
+
+class _FanPageState extends State<FanPage> with TickerProviderStateMixin {
+  late TabController _tabController;
+  int selectedTabIndex = 0;
+
+  // final List<Tab> myTabs = const [
+  //   Tab(icon: Icon(Icons.home), text: 'Início'),
+  //   Tab(icon: Icon(Icons.lightbulb), text: 'Palpites'),
+  //   Tab(icon: Icon(Icons.calendar_today), text: 'Jogos'),
+  //   Tab(icon: Icon(Icons.forum), text: 'Fórum'),
+  //   Tab(icon: Icon(Icons.emoji_events), text: 'Conquistas'),
+  //   Tab(icon: Icon(Icons.leaderboard), text: 'Rankings'),
+  // ];
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 7, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 7,
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppColors.primaryColor,
-          title: ListTile(
-            contentPadding: EdgeInsets.zero,
-            leading: ClipOval(
-              child: Container(
-                width: 45,
-                height: 45,
-                color: Colors.grey,
-              ),
-            ),
-            title: const Text(
-              'Lela Fieta',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            subtitle: const Text(
-              'Adepto',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 14,
-              ),
-            ),
-            trailing: IconButton(
-              onPressed: () {},
-              icon: SvgPicture.asset(
-                AppIcons.bell,
-                color: Colors.white,
-              ),
+    return Scaffold(
+      body: Column(
+        children: [
+          Container(
+            color: AppColors.primaryColor,
+            child: TabBar(
+              controller: _tabController,
+              isScrollable: true,
+              tabAlignment: TabAlignment.center,
+              unselectedLabelColor: AppColors.lightWightColor.withOpacity(.6),
+              labelColor: AppColors.lightWightColor,
+              indicatorColor: Colors.white,
+              indicatorSize: TabBarIndicatorSize.tab,
+              onTap: (value) {
+                setState(() {
+                  selectedTabIndex = value;
+                });
+              },
+              tabs: [
+                Tab(
+                  icon: SvgPicture.asset(
+                    AppIcons.football,
+                    width: 20,
+                    color: selectedTabIndex == 0
+                        ? Colors.white
+                        : AppColors.lightWightColor.withOpacity(.6),
+                  ),
+                  text: 'Feed',
+                ),
+                Tab(
+                  icon: SvgPicture.asset(
+                    AppIcons.populationGlobe,
+                    color: selectedTabIndex == 1
+                        ? Colors.white
+                        : AppColors.lightWightColor.withOpacity(.6),
+                  ),
+                  text: 'Competições',
+                ),
+                Tab(
+                  icon: SvgPicture.asset(
+                    AppIcons.thumbsup,
+                    color: selectedTabIndex == 2
+                        ? Colors.white
+                        : AppColors.lightWightColor.withOpacity(.6),
+                  ),
+                  text: 'Equipes',
+                ),
+                Tab(
+                  icon: SvgPicture.asset(
+                    AppIcons.newspaper,
+                    color: selectedTabIndex == 3
+                        ? Colors.white
+                        : AppColors.lightWightColor.withOpacity(.6),
+                  ),
+                  text: 'Jogadores',
+                ),
+                Tab(
+                  icon: SvgPicture.asset(
+                    AppIcons.settings,
+                    color: selectedTabIndex == 3
+                        ? Colors.white
+                        : AppColors.lightWightColor.withOpacity(.6),
+                  ),
+                  text: 'Comunidades',
+                ),
+                Tab(
+                  icon: SvgPicture.asset(
+                    AppIcons.settings,
+                    color: selectedTabIndex == 3
+                        ? Colors.white
+                        : AppColors.lightWightColor.withOpacity(.6),
+                  ),
+                  text: 'Notícias',
+                ),
+                Tab(
+                  icon: SvgPicture.asset(
+                    AppIcons.settings,
+                    color: selectedTabIndex == 3
+                        ? Colors.white
+                        : AppColors.lightWightColor.withOpacity(.6),
+                  ),
+                  text: 'Configurações',
+                ),
+              ],
             ),
           ),
-          bottom: const TabBar(
-            isScrollable: true,
-            tabAlignment: TabAlignment.start,
-            tabs: [
-              Tab(icon: Icon(Icons.newspaper), text: 'Feed'),
-              Tab(icon: Icon(Icons.emoji_events), text: 'Competições'),
-              Tab(icon: Icon(Icons.groups), text: 'Equipas'),
-              Tab(icon: Icon(Icons.bar_chart), text: 'Rankings'),
-              Tab(icon: Icon(Icons.forum), text: 'Fórum'),
-              Tab(icon: Icon(Icons.favorite), text: 'Favoritos'),
-              Tab(icon: Icon(Icons.settings), text: 'Definições'),
-            ],
+          Expanded(
+            child: TabBarView(
+              controller: _tabController,
+              children: const [
+                FanFeedTab(), // Feed de notícias
+                FanCompetitionsTab(), // Dados pessoais e histórico
+                Text("3"), // Meus palpites
+                Center(child: Text('Jogos')),
+                Center(child: Text('Jogos')),
+                Center(child: Text('Jogos')),
+                Center(child: Text('Jogos')),
+              ],
+            ),
           ),
-        ),
-        body: const TabBarView(
-          children: [
-            FanHomeTab(),
-            FanCompetitionsTab(),
-            FanTeamsPlayersTab(),
-            FanRankingsTab(),
-            FanForumTab(),
-            FanFavoritesTab(),
-            FanSettingsTab(),
-          ],
-        ),
+        ],
       ),
     );
   }
