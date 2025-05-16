@@ -114,4 +114,5 @@ class AppIcons {
   static const String managerBusinessman =
       "assets/icons/manager-businessman-svgrepo-com.svg";
   static const String referee = "assets/icons/referee-svgrepo-com.svg";
+  static const String rss = "assets/icons/rss.svg";
 }

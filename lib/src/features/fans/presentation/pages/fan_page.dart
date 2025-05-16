@@ -2,12 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:luanda_sport/src/features/fans/presentation/pages/fan_feed_page.dart';
 import 'package:luanda_sport/src/features/fans/presentation/pages/fan_game_page.dart';
-import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_competitions_tab.dart';
-import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_feed_tab.dart';
-import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_forum_tab.dart';
-import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_players_tab.dart';
-import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_teams_tab.dart';
-
 import '../../../../configs/themes/app_colors.dart';
 import '../../../../core/resources/app_icons.dart';
 
@@ -64,23 +58,36 @@ class _FanPageState extends State<FanPage> with TickerProviderStateMixin {
               },
               tabs: [
                 Tab(
-                  icon: SvgPicture.asset(
-                    AppIcons.football,
-                    width: 20,
-                    color: selectedTabIndex == 0
-                        ? Colors.white
-                        : AppColors.lightWightColor.withOpacity(.6),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(
+                        AppIcons.rss,
+                        width: 25,
+                        color: selectedTabIndex == 0
+                            ? Colors.white
+                            : AppColors.lightWightColor.withOpacity(.6),
+                      ),
+                      const SizedBox(width: 10),
+                      Text('Feed', style: TextStyle(fontSize: 16)),
+                    ],
                   ),
-                  text: 'Feed',
                 ),
                 Tab(
-                  icon: SvgPicture.asset(
-                    AppIcons.populationGlobe,
-                    color: selectedTabIndex == 1
-                        ? Colors.white
-                        : AppColors.lightWightColor.withOpacity(.6),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(
+                        AppIcons.football,
+                        width: 25,
+                        color: selectedTabIndex == 0
+                            ? Colors.white
+                            : AppColors.lightWightColor.withOpacity(.6),
+                      ),
+                      const SizedBox(width: 10),
+                      Text('Jogos', style: TextStyle(fontSize: 16)),
+                    ],
                   ),
-                  text: 'Jogos',
                 ),
               ],
             ),
