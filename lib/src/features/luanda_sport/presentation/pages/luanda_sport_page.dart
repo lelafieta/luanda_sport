@@ -74,19 +74,17 @@ class _LuandaSportPageState extends State<LuandaSportPage> {
           ],
         ),
         drawer: Drawer(
-          child: SafeArea(
-            child: Column(
-              children: [
-                Expanded(
-                  child: ListView(
-                    padding: EdgeInsets.zero,
-                    children: [
-                      DrawerHeader(
-                        decoration: const BoxDecoration(
-                          color: AppColors.primaryColor,
-                        ),
+          child: Column(
+            children: [
+              Expanded(
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: [
+                    Container(
+                      color: AppColors.primaryColor,
+                      child: SafeArea(
                         child: ListTile(
-                          contentPadding: const EdgeInsets.all(0),
+                          contentPadding: const EdgeInsets.all(16),
                           title: const Text(
                             'Jesse Lingard',
                             style: TextStyle(
@@ -109,66 +107,66 @@ class _LuandaSportPageState extends State<LuandaSportPage> {
                           ),
                         ),
                       ),
-                      Container(
-                        padding: const EdgeInsets.all(16.0),
-                        child: const Text(
-                          "Painel",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: AppColors.primaryColor,
-                            fontWeight: FontWeight.w600,
-                          ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(16.0),
+                      child: const Text(
+                        "Painel",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: AppColors.primaryColor,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
-                      ListTile(
-                        leading: SvgPicture.asset(
-                          AppIcons.achievementChallengeMedal,
-                          width: 26,
-                        ),
-                        title: Text('Campeonatos'),
-                        onTap: () {},
+                    ),
+                    ListTile(
+                      leading: SvgPicture.asset(
+                        AppIcons.achievementChallengeMedal,
+                        width: 26,
                       ),
-                      ListTile(
-                        leading: SvgPicture.asset(
-                          AppIcons.emblem,
-                          width: 26,
-                        ),
-                        title: Text('Equipas'),
-                        onTap: () {},
+                      title: Text('Campeonatos'),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      leading: SvgPicture.asset(
+                        AppIcons.emblem,
+                        width: 26,
                       ),
-                      ListTile(
-                        leading: SvgPicture.asset(
-                          AppIcons.contractPaper,
-                          width: 26,
-                        ),
-                        title: Text('Inscrições'),
-                        onTap: () {
-                          // Navigator.pop(context)
-                        },
+                      title: Text('Equipas'),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      leading: SvgPicture.asset(
+                        AppIcons.contractPaper,
+                        width: 26,
                       ),
-                      ListTile(
-                        leading: SvgPicture.asset(
-                          AppIcons.settings2,
-                          width: 26,
-                        ),
-                        title: Text('Configurações'),
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
+                      title: Text('Inscrições'),
+                      onTap: () {
+                        // Navigator.pop(context)
+                      },
+                    ),
+                    ListTile(
+                      leading: SvgPicture.asset(
+                        AppIcons.settings2,
+                        width: 26,
                       ),
-                      ListTile(
-                        leading: Icon(Icons.logout),
-                        title: Text('Logout'),
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ],
-                  ),
+                      title: Text('Configurações'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.logout),
+                      title: Text('Logout'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
                 ),
-                Text("Pacotes")
-              ],
-            ),
+              ),
+              Text("Pacotes")
+            ],
           ),
         ),
         body: widgets[_currentIndex],

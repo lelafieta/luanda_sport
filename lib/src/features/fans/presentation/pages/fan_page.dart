@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:luanda_sport/src/features/fans/presentation/pages/fan_feed_page.dart';
+import 'package:luanda_sport/src/features/fans/presentation/pages/fan_game_page.dart';
 import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_competitions_tab.dart';
 import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_feed_tab.dart';
 import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_forum_tab.dart';
+import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_players_tab.dart';
+import 'package:luanda_sport/src/features/fans/presentation/widgets/fan_teams_tab.dart';
 
 import '../../../../configs/themes/app_colors.dart';
 import '../../../../core/resources/app_icons.dart';
@@ -30,7 +34,7 @@ class _FanPageState extends State<FanPage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 7, vsync: this);
+    _tabController = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -48,8 +52,7 @@ class _FanPageState extends State<FanPage> with TickerProviderStateMixin {
             color: AppColors.primaryColor,
             child: TabBar(
               controller: _tabController,
-              isScrollable: true,
-              tabAlignment: TabAlignment.center,
+              tabAlignment: TabAlignment.fill,
               unselectedLabelColor: AppColors.lightWightColor.withOpacity(.6),
               labelColor: AppColors.lightWightColor,
               indicatorColor: Colors.white,
@@ -77,52 +80,7 @@ class _FanPageState extends State<FanPage> with TickerProviderStateMixin {
                         ? Colors.white
                         : AppColors.lightWightColor.withOpacity(.6),
                   ),
-                  text: 'Competições',
-                ),
-                Tab(
-                  icon: SvgPicture.asset(
-                    AppIcons.thumbsup,
-                    color: selectedTabIndex == 2
-                        ? Colors.white
-                        : AppColors.lightWightColor.withOpacity(.6),
-                  ),
-                  text: 'Equipes',
-                ),
-                Tab(
-                  icon: SvgPicture.asset(
-                    AppIcons.newspaper,
-                    color: selectedTabIndex == 3
-                        ? Colors.white
-                        : AppColors.lightWightColor.withOpacity(.6),
-                  ),
-                  text: 'Jogadores',
-                ),
-                Tab(
-                  icon: SvgPicture.asset(
-                    AppIcons.settings,
-                    color: selectedTabIndex == 3
-                        ? Colors.white
-                        : AppColors.lightWightColor.withOpacity(.6),
-                  ),
-                  text: 'Comunidades',
-                ),
-                Tab(
-                  icon: SvgPicture.asset(
-                    AppIcons.settings,
-                    color: selectedTabIndex == 3
-                        ? Colors.white
-                        : AppColors.lightWightColor.withOpacity(.6),
-                  ),
-                  text: 'Notícias',
-                ),
-                Tab(
-                  icon: SvgPicture.asset(
-                    AppIcons.settings,
-                    color: selectedTabIndex == 3
-                        ? Colors.white
-                        : AppColors.lightWightColor.withOpacity(.6),
-                  ),
-                  text: 'Configurações',
+                  text: 'Jogos',
                 ),
               ],
             ),
@@ -131,13 +89,8 @@ class _FanPageState extends State<FanPage> with TickerProviderStateMixin {
             child: TabBarView(
               controller: _tabController,
               children: const [
-                FanFeedTab(), // Feed de notícias
-                FanCompetitionsTab(), // Dados pessoais e histórico
-                Text("3"), // Meus palpites
-                Center(child: Text('Jogos')),
-                Center(child: Text('Jogos')),
-                Center(child: Text('Jogos')),
-                Center(child: Text('Jogos')),
+                FanFeedPage(),
+                FanGamePage(),
               ],
             ),
           ),
