@@ -130,4 +130,8 @@ class AppIcons {
   static const String creditCard = "assets/icons/credit-card-svgrepo-com.svg";
   static const String userPerson =
       "assets/icons/user-person-profile-block-account-circle-svgrepo-com.svg";
+
+  static const String taskChecklist = "assets/icons/task-checklist.svg";
+  static const String medal = "assets/icons/medal.svg";
+  static const String timePast = "assets/icons/time-past.svg";
 }

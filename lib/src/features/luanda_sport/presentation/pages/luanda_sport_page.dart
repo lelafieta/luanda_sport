@@ -3,6 +3,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:luanda_sport/src/features/fans/presentation/pages/fan_page.dart';
+import 'package:luanda_sport/src/features/players/presentation/pages/player_page.dart';
 
 import '../../../../configs/themes/app_colors.dart';
 import '../../../../core/resources/app_icons.dart';
@@ -24,7 +25,7 @@ class _LuandaSportPageState extends State<LuandaSportPage> {
   void initState() {
     super.initState();
     widgets = [
-      const FanPage(),
+      const PlayerPage(),
       const Text("Live"),
       const Text("Profile"),
       const Text("Settings"),

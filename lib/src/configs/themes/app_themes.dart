@@ -14,6 +14,12 @@ class AppTheme {
           backgroundColor: Colors.white,
           elevation: 2.h,
         ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColors.primaryColor,
+            foregroundColor: AppColors.lightWightColor,
+          ),
+        ),
       );
 
   static ThemeData get darkTheme => ThemeData(
