@@ -63,13 +63,13 @@ class _FanPageState extends State<FanPage> with TickerProviderStateMixin {
                     children: [
                       SvgPicture.asset(
                         AppIcons.rss,
-                        width: 25,
+                        width: 20,
                         color: selectedTabIndex == 0
                             ? Colors.white
                             : AppColors.lightWightColor.withOpacity(.6),
                       ),
                       const SizedBox(width: 10),
-                      Text('Feed', style: TextStyle(fontSize: 16)),
+                      Text('Feed', style: TextStyle()),
                     ],
                   ),
                 ),
@@ -79,13 +79,13 @@ class _FanPageState extends State<FanPage> with TickerProviderStateMixin {
                     children: [
                       SvgPicture.asset(
                         AppIcons.football,
-                        width: 25,
+                        width: 20,
                         color: selectedTabIndex == 0
                             ? Colors.white
                             : AppColors.lightWightColor.withOpacity(.6),
                       ),
                       const SizedBox(width: 10),
-                      Text('Jogos', style: TextStyle(fontSize: 16)),
+                      Text('Jogos', style: TextStyle()),
                     ],
                   ),
                 ),

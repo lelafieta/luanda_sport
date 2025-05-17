@@ -115,4 +115,19 @@ class AppIcons {
       "assets/icons/manager-businessman-svgrepo-com.svg";
   static const String referee = "assets/icons/referee-svgrepo-com.svg";
   static const String rss = "assets/icons/rss.svg";
+  static const String badgeMedal = "assets/icons/badge-medal-svgrepo-com.svg";
+  static const String trophyCup = "assets/icons/trophy-cup-svgrepo-com.svg";
+  static const String noteNotepad = "assets/icons/note-notepad-svgrepo-com.svg";
+  static const String settingsTools =
+      "assets/icons/settings-tools-and-utensils-svgrepo-com.svg";
+
+  static const String footballBall = "assets/icons/football-svgrepo-com.svg";
+
+  static const String note = "assets/icons/note-svgrepo-com.svg";
+  static const String settingsGear =
+      "assets/icons/settings-gear-svgrepo-com.svg";
+
+  static const String creditCard = "assets/icons/credit-card-svgrepo-com.svg";
+  static const String userPerson =
+      "assets/icons/user-person-profile-block-account-circle-svgrepo-com.svg";
 }

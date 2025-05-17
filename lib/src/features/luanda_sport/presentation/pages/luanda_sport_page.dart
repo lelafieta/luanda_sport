@@ -58,11 +58,15 @@ class _LuandaSportPageState extends State<LuandaSportPage> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: AppColors.primaryColor,
-          centerTitle: true,
+          // centerTitle: true,
           iconTheme: const IconThemeData(color: Colors.white),
           title: const Text(
             "Adepto",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+            ),
           ),
           actions: [
             IconButton(
@@ -121,24 +125,32 @@ class _LuandaSportPageState extends State<LuandaSportPage> {
                     ),
                     ListTile(
                       leading: SvgPicture.asset(
-                        AppIcons.achievementChallengeMedal,
-                        width: 26,
+                        AppIcons.userPerson,
+                        width: 25,
+                      ),
+                      title: Text('Meu Perfil'),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      leading: SvgPicture.asset(
+                        AppIcons.trophyCup,
+                        width: 25,
                       ),
                       title: Text('Campeonatos'),
                       onTap: () {},
                     ),
                     ListTile(
                       leading: SvgPicture.asset(
-                        AppIcons.emblem,
-                        width: 26,
+                        AppIcons.badgeMedal,
+                        width: 25,
                       ),
                       title: Text('Equipas'),
                       onTap: () {},
                     ),
                     ListTile(
                       leading: SvgPicture.asset(
-                        AppIcons.contractPaper,
-                        width: 26,
+                        AppIcons.note,
+                        width: 25,
                       ),
                       title: Text('Inscrições'),
                       onTap: () {
@@ -147,10 +159,30 @@ class _LuandaSportPageState extends State<LuandaSportPage> {
                     ),
                     ListTile(
                       leading: SvgPicture.asset(
-                        AppIcons.settings2,
-                        width: 26,
+                        AppIcons.footballBall,
+                        width: 25,
+                      ),
+                      title: Text('Jogos'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      leading: SvgPicture.asset(
+                        AppIcons.settingsGear,
+                        width: 25,
                       ),
                       title: Text('Configurações'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      leading: SvgPicture.asset(
+                        AppIcons.creditCard,
+                        width: 25,
+                      ),
+                      title: Text('Planos/Subscrição'),
                       onTap: () {
                         Navigator.pop(context);
                       },
@@ -217,7 +249,7 @@ class _LuandaSportPageState extends State<LuandaSportPage> {
         ),
         title: Text(
           label,
-          style: const TextStyle(fontSize: 18),
+          // style: const TextStyle(fontSize: 18),
         ),
         onTap: onTap,
       ),
