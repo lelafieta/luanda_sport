@@ -134,4 +134,11 @@ class AppIcons {
   static const String taskChecklist = "assets/icons/task-checklist.svg";
   static const String medal = "assets/icons/medal.svg";
   static const String timePast = "assets/icons/time-past.svg";
+
+  static const String clockThree = "assets/icons/clock-three.svg";
+  static const String redSquare = "assets/icons/red-square-svgrepo-com.svg";
+  static const String yellowSquare =
+      "assets/icons/yellow-square-svgrepo-com.svg";
+
+  static const String clock = "assets/icons/clock-svgrepo-com.svg";
 }

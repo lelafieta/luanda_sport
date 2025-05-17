@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:luanda_sport/src/core/resources/app_icons.dart';
 
 class PlayerStatsPage extends StatefulWidget {
   const PlayerStatsPage({super.key});
@@ -109,26 +111,26 @@ class _PlayerStatsPageState extends State<PlayerStatsPage> {
     );
   }
 
-  Widget _buildStatItem(IconData icon, String label, String value) {
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      color: Colors.white,
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Row(
-          children: [
-            Icon(icon, size: 28),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Text(
-                label,
-                style:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
+  Widget _buildStatItem(String icon, String label, String value) {
+    return Container(
+      padding: EdgeInsets.all(16),
+      margin: EdgeInsets.only(bottom: 16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: Colors.grey.shade300),
+      ),
+      child: Row(
+        children: [
+          SvgPicture.asset(icon, width: 22),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Text(
+              label,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            Text(value, style: const TextStyle(fontSize: 16)),
-          ],
-        ),
+          ),
+          Text(value, style: const TextStyle(fontSize: 16)),
+        ],
       ),
     );
   }
@@ -137,19 +139,15 @@ class _PlayerStatsPageState extends State<PlayerStatsPage> {
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
-        _buildStatItem(Icons.sports_soccer, 'Goals', player.goals.toString()),
-        _buildStatItem(Icons.assistant, 'Assists', player.assists.toString()),
+        _buildStatItem(AppIcons.footballBall, 'Goals', player.goals.toString()),
         _buildStatItem(
-            Icons.warning, 'Yellow Cards', player.yellowCards.toString()),
-        _buildStatItem(Icons.cancel, 'Red Cards', player.redCards.toString()),
+            AppIcons.footballShoesShoe, 'Assists', player.assists.toString()),
+        _buildStatItem(AppIcons.yellowSquare, 'Yellow Cards',
+            player.yellowCards.toString()),
         _buildStatItem(
-            Icons.sports, 'Appearances', player.appearances.toString()),
-        _buildStatItem(Icons.access_time, 'Minutes Played',
-            player.minutesPlayed.toString()),
-        _buildStatItem(Icons.bar_chart, 'Avg. Goals/Game',
-            player.averageGoalsPerGame.toStringAsFixed(2)),
-        _buildStatItem(Icons.percent, 'Win Percentage',
-            '${player.winPercentage.toStringAsFixed(1)}%'),
+            AppIcons.redSquare, 'Red Cards', player.redCards.toString()),
+        _buildStatItem(AppIcons.footballPlayerSpain, 'Appearances',
+            player.appearances.toString()),
         const SizedBox(height: 20),
         const Text(
           'Note: These are sample stats and may not reflect actual player data.',

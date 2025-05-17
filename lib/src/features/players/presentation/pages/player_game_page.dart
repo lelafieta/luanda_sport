@@ -87,7 +87,7 @@ class _PlayerGamePageState extends State<PlayerGamePage> {
                                               ),
                                             ]),
                                           ),
-                                          const Text("4")
+                                          const Text("-")
                                         ],
                                       ),
                                       const SizedBox(height: 10),
@@ -110,7 +110,7 @@ class _PlayerGamePageState extends State<PlayerGamePage> {
                                               ),
                                             ]),
                                           ),
-                                          const Text("1")
+                                          const Text("-")
                                         ],
                                       ),
                                       const SizedBox(width: 10),
