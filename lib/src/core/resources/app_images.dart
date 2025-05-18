@@ -39,4 +39,5 @@ class AppImages {
   static const String playerCard = "assets/images/player-card.png";
 
   static const String banner = "assets/images/banner.png";
+  static const String lineupStadium = "assets/images/lineup_stadium.png";
 }

@@ -2,6 +2,8 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:luanda_sport/src/features/luanda_sport/presentation/pages/luanda_sport_page.dart';
+import 'package:luanda_sport/src/features/teams/presentation/pages/list_teams_page.dart';
+import 'package:luanda_sport/src/features/teams/presentation/pages/team_details_page.dart';
 
 final GoRouter appRouter = GoRouter(
   // redirect: (context, state) {
@@ -63,6 +65,46 @@ final GoRouter appRouter = GoRouter(
       path: '/adepto',
       name: 'adepto',
       builder: (context, state) => const Text("HOME"),
+    ),
+
+    GoRoute(
+      path: '/list-teams',
+      name: 'list-teams',
+      pageBuilder: (context, state) {
+        return CustomTransitionPage(
+          key: state.pageKey,
+          child: ListTeamsPage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return SharedAxisTransition(
+              animation: animation,
+              secondaryAnimation: secondaryAnimation,
+              transitionType: SharedAxisTransitionType.vertical,
+              child: child,
+            );
+          },
+          transitionDuration: const Duration(milliseconds: 300),
+        );
+      },
+    ),
+
+    GoRoute(
+      path: '/team-details',
+      name: 'team-details',
+      pageBuilder: (context, state) {
+        return CustomTransitionPage(
+          key: state.pageKey,
+          child: TeamDetailsPage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return SharedAxisTransition(
+              animation: animation,
+              secondaryAnimation: secondaryAnimation,
+              transitionType: SharedAxisTransitionType.vertical,
+              child: child,
+            );
+          },
+          transitionDuration: const Duration(milliseconds: 300),
+        );
+      },
     ),
 
     //  GoRoute(path: '/login', builder: (_, __) => LoginPage()),

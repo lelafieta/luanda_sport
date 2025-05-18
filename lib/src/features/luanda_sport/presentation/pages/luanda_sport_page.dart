@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:luanda_sport/src/features/fans/presentation/pages/fan_page.dart';
 import 'package:luanda_sport/src/features/players/presentation/pages/player_page.dart';
 
@@ -146,7 +147,9 @@ class _LuandaSportPageState extends State<LuandaSportPage> {
                         width: 25,
                       ),
                       title: Text('Equipas'),
-                      onTap: () {},
+                      onTap: () {
+                        context.pushNamed("list-teams");
+                      },
                     ),
                     ListTile(
                       leading: SvgPicture.asset(
